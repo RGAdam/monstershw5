@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Creepster&family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+.app {
+  font-family: "Roboto", sans-serif;
+}
+
+.app__header {
+  font-family: "Creepster", cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-header__logo {
+  height: 150px;
+  margin-bottom: -75px;
+}
+
+.app-header__title {
+  font-size: 75px;
+}
