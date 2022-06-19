@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 import MonsterForm from "./MonsterForm";
 
 const NewMonster = (props) => {

@@ -1,10 +1,5 @@
 import { useState } from "react";
 
-import Air from "./res/air.svg";
-import Earth from "./res/earth.svg";
-import Fire from "./res/fire.svg";
-import Water from "./res/water.svg";
-
 import MonsterList from "./components/List/MonsterList";
 import NewMonster from "./components/Form/NewMonster";
 import Logo from "./res/logo.svg";
