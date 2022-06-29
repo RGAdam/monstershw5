@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import MonsterList from "./components/List/MonsterList";
+import MonsterSearch from "./components/List/MonsterSearch";
 import NewMonster from "./components/Form/NewMonster";
-import Logo from "./res/logo.svg";
+import Logo from "assets/logo.svg";
 import "./App.css";
 
 const DUMMY_MONSTERS = [
@@ -38,11 +39,33 @@ const DUMMY_MONSTERS = [
 
 function App() {
   const [monsters, setMonsters] = useState(DUMMY_MONSTERS);
+  const [filteredMonsters, setFilteredMonsters] = useState([]);
+  const [inputText, setInputText] = useState("");
+
+  useEffect(() => {
+    setFilteredMonsters(monsters);
+  }, [monsters]);
 
   const addMonsterHandler = (monster) => {
     setMonsters((prevMonsters) => {
       return [monster, ...prevMonsters];
     });
+  };
+
+  const searchMonsterHandler = (filter) => {
+    let copyOfMonsters = [...monsters];
+
+    setFilteredMonsters(
+      copyOfMonsters.filter((monster) =>
+        monster.name.toLowerCase().includes(filter)
+      )
+    );
+  };
+
+  const deleteMonsterHandler = (id) => {
+    let copyOfMonsters = [...monsters];
+
+    setMonsters(copyOfMonsters.filter((monster) => monster.id !== id));
   };
 
   return (
@@ -52,7 +75,11 @@ function App() {
         <h1 className="app-header__title">Monsters</h1>
       </header>
       <NewMonster onAddMonster={addMonsterHandler} />
-      <MonsterList monsters={monsters} />
+      <MonsterSearch onSearchMonster={searchMonsterHandler} />
+      <MonsterList
+        monsters={filteredMonsters}
+        onDeleteMonster={deleteMonsterHandler}
+      />
     </div>
   );
 }

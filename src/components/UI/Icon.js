@@ -1,14 +1,14 @@
 import "./Icon.css";
 
-import Air from "../../res/air.svg";
-import Earth from "../../res/earth.svg";
-import Fire from "../../res/fire.svg";
-import Water from "../../res/water.svg";
-import Attack from "../../res/attack.svg";
-import Defense from "../../res/defense.svg";
-import ArrowLeft from "../../res/arrow-left.svg";
-import ArrowRight from "../../res/arrow-right.svg";
-import Trash from "../../res/trash-can.svg";
+import Air from "assets/air.svg";
+import Earth from "assets/earth.svg";
+import Fire from "assets/fire.svg";
+import Water from "assets/water.svg";
+import Attack from "assets/attack.svg";
+import Defense from "assets/defense.svg";
+import ArrowLeft from "assets/arrow-left.svg";
+import ArrowRight from "assets/arrow-right.svg";
+import Trash from "assets/trash-can.svg";
 
 const Icon = (props) => {
   let iconName;
@@ -45,7 +45,12 @@ const Icon = (props) => {
 
   return (
     <div className="icon">
-      <img src={iconName} style={props.setStyle} onClick={props.onClick} alt="" />
+      <img
+        src={iconName}
+        style={props.setStyle}
+        onClick={props.onClick}
+        alt=""
+      />
     </div>
   );
 };

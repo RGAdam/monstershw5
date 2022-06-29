@@ -4,11 +4,9 @@ const NewMonster = (props) => {
   const saveMonsterDataHandler = (enteredMonsterData) => {
     const monsterData = {
       ...enteredMonsterData,
-      id: Math.random().toString(),
+      id: Math.random(),
     };
     props.onAddMonster(monsterData);
-    console.log("Új szörny: ");
-    console.log(enteredMonsterData);
   };
 
   return (
