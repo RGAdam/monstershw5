@@ -1,12 +1,12 @@
 import { useContext, useState } from "react";
-import AppContext from "contexts/AppContext";
 
 import Icon from "../UI/Icon";
 import Card from "../UI/Card";
 
 import "./MonsterForm.css";
+import AppContext from "contexts/AppContext";
 
-const MonsterForm = ({ onSaveMonsterData }) => {
+const MonsterForm = () => {
   const [currentElement, setCurrentElement] = useState("air");
   const [enteredName, setEnteredName] = useState("");
   const [enteredAttack, setEnteredAttack] = useState(1);
@@ -41,6 +41,13 @@ const MonsterForm = ({ onSaveMonsterData }) => {
     setEnteredDefense(event.target.value);
   };
 
+  const setDefaults = () => {
+    setCurrentElement("air");
+    setEnteredName("");
+    setEnteredAttack(1);
+    setEnteredDefense(1);
+  };
+
   const submitHandler = (event) => {
     event.preventDefault();
 
@@ -54,10 +61,7 @@ const MonsterForm = ({ onSaveMonsterData }) => {
       };
 
       addMonsterHandler(monsterData);
-      setCurrentElement("air");
-      setEnteredName("");
-      setEnteredAttack(1);
-      setEnteredDefense(1);
+      setDefaults();
     }
   };
 

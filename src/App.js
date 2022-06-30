@@ -1,7 +1,6 @@
-import AppProvider from "contexts/AppContext";
-
 import "./App.css";
 import MonsterPage from "components/Pages/MonsterPage";
+import { AppProvider } from "contexts/AppContext";
 
 function App() {
   return (

@@ -33,7 +33,7 @@ const dummyMonsters = [
 
 const AppContext = createContext({});
 
-const AppProvider = ({ children }) => {
+export const AppProvider = ({ children }) => {
   const [monsters, setMonsters] = useState(dummyMonsters);
   const [filteredMonsters, setFilteredMonsters] = useState([]);
 
@@ -46,14 +46,6 @@ const AppProvider = ({ children }) => {
       return [monster, ...prevMonsters];
     });
   };
-
-  //   const saveMonsterDataHandler = (enteredMonsterData) => {
-  //     const monsterData = {
-  //       ...enteredMonsterData,
-  //       id: Math.random(),
-  //     };
-  //     onAddMonster(monsterData);
-  //   };
 
   const searchMonsterHandler = (filter) => {
     let copyOfMonsters = [...monsters];
@@ -86,4 +78,4 @@ const AppProvider = ({ children }) => {
   );
 };
 
-export default AppProvider;
+export default AppContext;

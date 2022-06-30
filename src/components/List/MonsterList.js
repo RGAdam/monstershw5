@@ -5,20 +5,20 @@ import Icon from "../UI/Icon";
 
 import "./MonsterList.css";
 
-const MonsterList = (props) => {
+const MonsterList = () => {
   const elementIconStyle = { height: "50px", width: "50px" };
   const trashIconStyle = { height: "30px", width: "30px" };
   const statIconStyle = { height: "15px", width: "15px" };
 
-  const ctx = useContext(AppContext);
+  const { deleteMonsterHandler, filteredMonsters } = useContext(AppContext);
 
   const deleteMonster = (id) => {
-    props.onDeleteMonster(id);
+    deleteMonsterHandler(id);
   };
 
-  console.log(props.monsters());
+  console.log(filteredMonsters);
 
-  if (props.monsters.length === 0) {
+  if (filteredMonsters.length === 0) {
     return <h2>No monsters</h2>;
   }
 
@@ -26,7 +26,7 @@ const MonsterList = (props) => {
     <div className="monster-list-outer">
       <h2>Monsters:</h2>
       <ul>
-        {props.monsters.map((monster) => (
+        {filteredMonsters.map((monster) => (
           <Card className="list-item-wrapper" key={monster.id}>
             <li className="list-item">
               <Icon iconName={monster.elemental} setStyle={elementIconStyle} />

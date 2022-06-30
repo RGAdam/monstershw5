@@ -1,6 +1,6 @@
-import MonsterList from "./components/List/MonsterList";
-import MonsterSearch from "./components/List/MonsterSearch";
-import NewMonster from "./components/Form/NewMonster";
+import MonsterList from "components/List/MonsterList";
+import MonsterSearch from "components/List/MonsterSearch";
+import NewMonster from "components/Form/NewMonster";
 import Logo from "assets/logo.svg";
 
 const MonsterPage = () => {

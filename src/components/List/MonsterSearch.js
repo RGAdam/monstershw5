@@ -1,8 +1,12 @@
+import { useContext } from "react";
+import AppContext from "contexts/AppContext";
 import "./MonsterSearch.css";
 
-const MonsterSearch = ({ onSearchMonster }) => {
+const MonsterSearch = () => {
+  const { searchMonsterHandler } = useContext(AppContext);
+
   const onSearchChangeHandler = (event) => {
-    onSearchMonster(event.target.value);
+    searchMonsterHandler(event.target.value);
   };
 
   return (
