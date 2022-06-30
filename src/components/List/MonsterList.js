@@ -1,3 +1,5 @@
+import AppContext from "contexts/AppContext";
+import { useContext } from "react";
 import Card from "../UI/Card";
 import Icon from "../UI/Icon";
 
@@ -8,9 +10,13 @@ const MonsterList = (props) => {
   const trashIconStyle = { height: "30px", width: "30px" };
   const statIconStyle = { height: "15px", width: "15px" };
 
+  const ctx = useContext(AppContext);
+
   const deleteMonster = (id) => {
     props.onDeleteMonster(id);
   };
+
+  console.log(props.monsters());
 
   if (props.monsters.length === 0) {
     return <h2>No monsters</h2>;

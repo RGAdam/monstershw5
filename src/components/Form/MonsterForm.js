@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import AppContext from "contexts/AppContext";
 
 import Icon from "../UI/Icon";
 import Card from "../UI/Card";
@@ -10,6 +11,8 @@ const MonsterForm = ({ onSaveMonsterData }) => {
   const [enteredName, setEnteredName] = useState("");
   const [enteredAttack, setEnteredAttack] = useState(1);
   const [enteredDefense, setEnteredDefense] = useState(1);
+
+  const { addMonsterHandler } = useContext(AppContext);
 
   const setSizeBig = { height: "50px", width: "50px" };
   const setSizeMedium = { height: "30px", width: "30px" };
@@ -43,13 +46,14 @@ const MonsterForm = ({ onSaveMonsterData }) => {
 
     if (enteredName.length && enteredAttack && enteredDefense) {
       const monsterData = {
+        id: Math.random(),
         elemental: currentElement,
         name: enteredName,
         attack: enteredAttack,
         defense: enteredDefense,
       };
 
-      onSaveMonsterData(monsterData);
+      addMonsterHandler(monsterData);
       setCurrentElement("air");
       setEnteredName("");
       setEnteredAttack(1);
